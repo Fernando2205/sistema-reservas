@@ -1,6 +1,7 @@
 package com.usbcali.reservas.view;
 
-public interface IUserInputHandler {
+public interface IMostrarVentana {
     String solicitarEntrada(String mensaje);
+
     void mostrarMensaje(String mensaje);
 }

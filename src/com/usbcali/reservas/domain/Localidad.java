@@ -1,7 +1,5 @@
 package com.usbcali.reservas.domain;
 
-import java.util.List;
-
 public enum Localidad {
     VIP,
     PALCO,

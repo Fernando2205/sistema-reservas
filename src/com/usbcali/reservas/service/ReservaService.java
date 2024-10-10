@@ -8,28 +8,29 @@ import java.util.List;
 
 public class ReservaService {
     private IReservaRepository repositorio;
-    private IEstadoReservasFormatter formateador;
+    private IJsonFormatter formateador;
     private IConsolidadoFormatter consolidado;
 
-    public ReservaService(IReservaRepository reposotorio,IEstadoReservasFormatter formateador,IConsolidadoFormatter consolidado) {
+    public ReservaService(IReservaRepository reposotorio, IJsonFormatter formateador,
+            IConsolidadoFormatter consolidado) {
         this.repositorio = reposotorio;
         this.formateador = formateador;
         this.consolidado = consolidado;
     }
 
-    public void hacerReserva(Reserva reserva){
-        if (!DateUtil.FECHAS_CONCIERTO.contains(reserva.getFecha())){
+    public void hacerReserva(Reserva reserva) {
+        if (!DateUtil.FECHAS_CONCIERTO.contains(reserva.getFecha())) {
             throw new RuntimeException("Fecha no valida");
         }
         repositorio.agregarReserva(reserva);
     }
 
-    public String obtenerEstado(){
+    public String obtenerEstado() {
         List<Reserva> reservas = repositorio.obtenerReservas();
         return formateador.formatearEstado(reservas);
     }
 
-    public String obtenerConsolidado(){
+    public String obtenerConsolidado() {
         List<Reserva> reservas = repositorio.obtenerReservas();
         return consolidado.formatearConsolidado(reservas);
     }

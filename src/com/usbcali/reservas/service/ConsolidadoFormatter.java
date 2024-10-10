@@ -1,6 +1,5 @@
 package com.usbcali.reservas.service;
 
-import com.sun.source.tree.ReturnTree;
 import com.usbcali.reservas.domain.Localidad;
 import com.usbcali.reservas.domain.Reserva;
 import com.usbcali.reservas.util.DateUtil;
@@ -12,10 +11,10 @@ import java.util.List;
 public class ConsolidadoFormatter implements IConsolidadoFormatter {
     @Override
     public String formatearConsolidado(List<Reserva> reservas) {
-        //Lista donde se almacena la informacion del consolidado
+        // Lista donde se almacena la informacion del consolidado
         List<String> consolidadoLista = new ArrayList<>();
 
-        for (LocalDate fecha : DateUtil.FECHAS_CONCIERTO){
+        for (LocalDate fecha : DateUtil.FECHAS_CONCIERTO) {
             consolidadoLista.add("Fecha: " + fecha.format(DateUtil.DATE_FORMATTER));
 
             // Filtrar las reservas para la fecha actual
